@@ -1,8 +1,5 @@
-#pragma once
 #include "../include/PID/pid.hpp"
-#include <stdio.h>
-
-using namespace std;
+#include "../include/DriveTrain/drivetrain.hpp"
 
 double f(double t)
 {
@@ -11,6 +8,10 @@ double f(double t)
 
 int main()
 {
+    MotorList * M = new MotorList(1);
+    M->assignMotor(0, new Motor("A", 1));
+    printf("%s\n", M->getIndex(0)->printName());
+
     // system variables
     double dtime = 0.25f;
     double j = 0.0f;
